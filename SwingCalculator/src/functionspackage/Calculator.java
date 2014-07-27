@@ -35,10 +35,11 @@ public class Calculator extends JFrame implements ActionListener{
 	JButton buttonDecimal = new JButton(".");
 	JButton clearButton = new JButton("C");
 	JButton btnNewButton_2 = new JButton("X^X");//Create button for your function
-	JButton btnSinx = new JButton("sinX"); 
+	JButton btnSinx = new JButton("SinX"); 
 	JButton btnCosx = new JButton("CosX");
+	JButton btnTanx = new JButton("TanX");
 	JButton btnNewButton_3 = new JButton("-/+");
-	
+
 
 
 	/**
@@ -50,7 +51,8 @@ public class Calculator extends JFrame implements ActionListener{
 				try {
 					Calculator frame = new Calculator();
 					frame.setVisible(true);
-					Xfunc func= new Xfunc();// create a new object of your class in the same package
+
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -71,7 +73,7 @@ public class Calculator extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		for(int i = 0; i < 4; i++)
-		 function[i] = false;
+			function[i] = false;
 
 		b1.setBounds(10, 117, 45, 23);
 		contentPane.add(b1);
@@ -80,39 +82,39 @@ public class Calculator extends JFrame implements ActionListener{
 		b2.setBounds(58, 117, 45, 23);
 		contentPane.add(b2);
 		b2.addActionListener(this);
-		
+
 		b3.setBounds(109, 117, 45, 23);
 		contentPane.add(b3);
 		b3.addActionListener(this);
-		
+
 		b4.setBounds(10, 151, 45, 23);
 		contentPane.add(b4);
 		b4.addActionListener(this);
-	
+
 		b5.setBounds(58, 151, 45, 23);
 		contentPane.add(b5);
 		b5.addActionListener(this);
-		
+
 		b6.setBounds(109, 151, 45, 23);
 		contentPane.add(b6);
 		b6.addActionListener(this);
-		
+
 		b7.setBounds(10, 185, 45, 23);
 		contentPane.add(b7);
 		b7.addActionListener(this);
-		
+
 		b8.setBounds(58, 185, 45, 23);
 		contentPane.add(b8);
 		b8.addActionListener(this);
-		
+
 		b9.setBounds(109, 185, 45, 23);
 		contentPane.add(b9);
 		b9.addActionListener(this);
-		
+
 		b0.setBounds(10, 219, 93, 23);
 		contentPane.add(b0);
 		b0.addActionListener(this);
-		
+
 		buttonDecimal.setBounds(109, 219, 45, 23);
 		contentPane.add(buttonDecimal);
 		buttonDecimal.addActionListener(this);
@@ -120,128 +122,167 @@ public class Calculator extends JFrame implements ActionListener{
 		clearButton.setBounds(10, 83, 89, 23);
 		contentPane.add(clearButton);
 		clearButton.addActionListener(this);
-		
+
 		//btnNewButton_2 is for X^X, others are appropriately defined
 		btnNewButton_2.setBounds(207, 83, 89, 23);
 		contentPane.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(this);
-		
+
 		//btnNewButton_3 is to toggle -ve values in input 
 		btnNewButton_3.setBounds(109, 83, 70, 23);
 		contentPane.add(btnNewButton_3);
 		btnNewButton_3.addActionListener(this);
-		
+
 		textArea.setBounds(10, 33, 265, 22);
 		contentPane.add(textArea);
 		textArea.setEditable(false);
-		
+
 		btnSinx.setBounds(207, 117, 89, 23);
 		contentPane.add(btnSinx);
 		btnSinx.addActionListener(this);//I have already added the action listener here, go to actionsPerformed()
-		
+
 		btnCosx.setBounds(207, 151, 89, 23);
 		contentPane.add(btnCosx);
-		btnCosx.addActionListener(this);		
+		btnCosx.addActionListener(this);
+
+		btnTanx.setBounds(207, 185, 89, 23);
+		contentPane.add(btnTanx);
+		btnTanx.addActionListener(this);
 	}
-	
-	  public void clear() {
-		  	try {
-		  		textArea.setText("");
-		  		for(int i = 0; i < 4; i++)
-		  			function[i] = false;
-		  			for(int i = 0; i < 2; i++)
-		  				temporary[i] = 0;
-		  		} catch(NullPointerException e) {}
-		      }
-	  public void getPosNeg() {
 
-		          try {
+	public void clear() {
+		try {
+			textArea.setText("");
+			for(int i = 0; i < 4; i++)
+				function[i] = false;
+			for(int i = 0; i < 2; i++)
+				temporary[i] = 0;
+		} catch(NullPointerException e) {}
+	}
+	public void getPosNeg() {
 
-		              double value = Double.parseDouble(textArea.getText());
-		              if(value != 0) {
-		               value = value * (-1);
-		               	textArea.setText(Double.toString(value));
-		              	}
-	              else {
-	              		}
-		          	} catch(NumberFormatException e) {}
-	  					}
-	  public void getXpowerX() {
-		    try {
-		              double inputted = Double.parseDouble(textArea.getText());
-		              double value = Xfunc.exponentfunction(inputted, inputted);
-		              textArea.setText(Double.toString(value));
-		          } catch(NumberFormatException e) {
-		          }
-		      }
+		try {
 
-	  @Override
+			double value = Double.parseDouble(textArea.getText());
+			if(value != 0) {
+				value = value * (-1);
+				textArea.setText(Double.toString(value));
+			}
+			else {
+			}
+		} catch(NumberFormatException e) {}
+	}
+	public void getXpowerX() {
+		try {
+			double inputted = Double.parseDouble(textArea.getText());
+			double value = Xfunc.exponentfunction(inputted, inputted);
+			textArea.setText(Double.toString(value));
+		} catch(NumberFormatException e) {
+		}
+	}
 
-	      public void actionPerformed(ActionEvent ae) {
 
-		      if(ae.getSource() == b0)
-		    	  
-		    	  textArea.append("0");    
-		  	  
-		      if(ae.getSource() == b1)
+	public void sine() {
+		try {
+			double inputted = Double.parseDouble(textArea.getText());
+			double value = Sine.sinet(inputted);
+			textArea.setText(Double.toString(value));
+		} catch(NumberFormatException e) {
+		}
+	}
 
-	              textArea.append("1");
+	public void cos() {
+		try {
+			double inputted = Double.parseDouble(textArea.getText());
+			double value = Cose.cosF(inputted);
+			textArea.setText(Double.toString(value));
+		} catch(NumberFormatException e) {
+		}
+	}
 
-	          if(ae.getSource() == b2)
+	public void tan() {
+		try {
+			double inputted = Double.parseDouble(textArea.getText());
+			double value = CalcTan.CalcTanFun(inputted);
+			textArea.setText(Double.toString(value));
+		} catch(NumberFormatException e) {
+		}
+	}
 
-	        	  textArea.append("2");
+	@Override
 
-	          if(ae.getSource() == b3)
+	public void actionPerformed(ActionEvent ae) {
 
-	        	  textArea.append("3");
+		if(ae.getSource() == b0)
 
-	          if(ae.getSource() == b4)
+			textArea.append("0");    
 
-	        	  textArea.append("4");
+		if(ae.getSource() == b1)
 
-	          if(ae.getSource() == b5)
+			textArea.append("1");
 
-	        	  textArea.append("5");
+		if(ae.getSource() == b2)
 
-	          if(ae.getSource() == b6)
+			textArea.append("2");
 
-	              textArea.append("6");
+		if(ae.getSource() == b3)
 
-	          if(ae.getSource() == b7)
+			textArea.append("3");
 
-	              textArea.append("7");
+		if(ae.getSource() == b4)
 
-	          if(ae.getSource() == b8)
+			textArea.append("4");
 
-	              textArea.append("8");
+		if(ae.getSource() == b5)
 
-	          if(ae.getSource() == b9)
+			textArea.append("5");
 
-	              textArea.append("9");
+		if(ae.getSource() == b6)
 
-	          if(ae.getSource() == buttonDecimal)
+			textArea.append("6");
 
-	              textArea.append(".");
+		if(ae.getSource() == b7)
 
-	          if(ae.getSource() == clearButton)
+			textArea.append("7");
 
-	              clear();
-	          
-	          if(ae.getSource() == btnNewButton_2)
+		if(ae.getSource() == b8)
 
-	              getXpowerX();
+			textArea.append("8");
 
-	          if(ae.getSource() == btnNewButton_3)
+		if(ae.getSource() == b9)
 
-	              getPosNeg();
-	          
-	          if(ae.getSource() == btnSinx){}
-	        	  //Function call here
+			textArea.append("9");
 
-	          if(ae.getSource() == btnCosx){
+		if(ae.getSource() == buttonDecimal)
 
-	              //Add function call here
-	          }
-	  
-	      }
+			textArea.append(".");
+
+		if(ae.getSource() == clearButton)
+
+			clear();
+
+		if(ae.getSource() == btnNewButton_2)
+
+			getXpowerX();
+
+		if(ae.getSource() == btnNewButton_3)
+
+			getPosNeg();
+
+		if(ae.getSource() == btnSinx){
+			sine();  
+		}
+		//Function call here
+
+		if(ae.getSource() == btnCosx){
+			cos();
+			//Add function call here
+		}	
+
+		if(ae.getSource() == btnTanx){
+			tan();
+			//Add function call here
+		}	
+
+	}
 }
