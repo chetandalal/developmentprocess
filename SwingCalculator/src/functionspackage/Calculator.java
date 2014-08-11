@@ -1,10 +1,14 @@
 package functionspackage;
 
 import java.awt.BorderLayout;
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
 import java.awt.EventQueue;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 import functionspackage.Xfunc;//Import your file
 
 import javax.swing.JButton;
@@ -12,11 +16,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JCheckBox;
 
-public class Calculator extends JFrame implements ActionListener{
+@SuppressWarnings({ "unused", "serial" })
+public class Calculator extends JFrame implements ActionListener, ItemListener{
 
 	private JPanel contentPane;
 	public double result=0.0;
+	CheckboxGroup cbg;
+	 Checkbox radians, degrees;
 	//private boolean isDecimal=false;
 	//private boolean isEnter=false;
 	boolean[] function = new boolean[4];
@@ -35,10 +43,11 @@ public class Calculator extends JFrame implements ActionListener{
 	JButton buttonDecimal = new JButton(".");
 	JButton clearButton = new JButton("C");
 	JButton btnNewButton_2 = new JButton("X^X");//Create button for your function
-	JButton btnSinx = new JButton("SinX"); 
-	JButton btnCosx = new JButton("CosX");
-	JButton btnTanx = new JButton("TanX");
+	JButton btnSinx = new JButton("Sin"); 
+	JButton btnCosx = new JButton("Cos");
+	JButton btnTanx = new JButton("Tan");
 	JButton btnNewButton_3 = new JButton("-/+");
+	
 
 
 
@@ -51,6 +60,7 @@ public class Calculator extends JFrame implements ActionListener{
 				try {
 					Calculator frame = new Calculator();
 					frame.setVisible(true);
+					Xfunc obj= new Xfunc();
 
 
 				} catch (Exception e) {
@@ -148,6 +158,19 @@ public class Calculator extends JFrame implements ActionListener{
 		btnTanx.setBounds(207, 185, 89, 23);
 		contentPane.add(btnTanx);
 		btnTanx.addActionListener(this);
+		
+		cbg = new CheckboxGroup();
+		degrees = new Checkbox("Degrees", cbg, true);
+		degrees.setState(true);
+		degrees.setBounds(295, 22, 95, 22);
+		contentPane.add(degrees);
+		degrees.addItemListener(this);
+		
+		radians = new Checkbox("Radians", cbg, false);
+		radians.setBounds(295, 55, 95, 22);
+		contentPane.add(radians);
+		radians.addItemListener(this);	
+		
 	}
 
 	public void clear() {
@@ -189,6 +212,25 @@ public class Calculator extends JFrame implements ActionListener{
 			textArea.setText(Double.toString(value));
 		} catch(NumberFormatException e) {
 		}
+	}
+	/*New Method added for Sine using degree and radians: Navpreet has to remove all built in functions
+	 like math.rad or degree conversion*/
+	public void sinee() {
+		try{
+			if (degrees.getState())
+			{
+				double inputted = Double.parseDouble(textArea.getText());
+				double value = Sine.sinet(inputted);
+				textArea.setText(Double.toString(value));	
+			}
+			else {
+				double inputted = Double.parseDouble(textArea.getText()); 
+				double convertDegree= Math.toDegrees(inputted);
+				double value = Sine.sinet(convertDegree);
+				textArea.setText(Double.toString(value));
+			}
+		} catch(NumberFormatException e) {
+			}
 	}
 
 	public void cos() {
@@ -270,7 +312,7 @@ public class Calculator extends JFrame implements ActionListener{
 			getPosNeg();
 
 		if(ae.getSource() == btnSinx){
-			sine();  
+			sinee();  
 		}
 		//Function call here
 
@@ -284,5 +326,11 @@ public class Calculator extends JFrame implements ActionListener{
 			//Add function call here
 		}	
 
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

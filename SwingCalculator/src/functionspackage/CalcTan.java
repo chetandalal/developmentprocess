@@ -5,7 +5,8 @@ public class CalcTan {
 
 
     
-    public static double CalcTanFun(double input){
+    @SuppressWarnings("unused")
+	public static double CalcTanFun(double input){
     	
         double num,num1;
         double sin1, cos1,cos_po1, interim1, sin_po1,interim2,val1;

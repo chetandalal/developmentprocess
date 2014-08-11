@@ -1,6 +1,7 @@
 package functionspackage;
 import static java.lang.Math.pow;
 
+@SuppressWarnings("unused")
 public class Sine {
 
 	/**
