@@ -197,12 +197,14 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 		btnSinx.setBounds(207, 117, 89, 23);
 		contentPane.add(btnSinx);
 		btnSinx.addActionListener(this);//I have already added the action listener here, go to actionsPerformed()
+		btnCosx.setToolTipText("E.g. 60+Cos= Cos60");
 		btnCosx.setForeground(Color.BLUE);
 		btnCosx.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 
 		btnCosx.setBounds(207, 151, 89, 23);
 		contentPane.add(btnCosx);
 		btnCosx.addActionListener(this);
+		btnTanx.setToolTipText("E.g. 45+Tan=Tan45");
 
 		btnTanx.setBounds(207, 185, 89, 23);
 		contentPane.add(btnTanx);
