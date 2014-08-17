@@ -3,6 +3,7 @@ package functionspackage;
 import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JCheckBox;
+import java.awt.SystemColor;
+import java.awt.Font;
 
 @SuppressWarnings({ "unused", "serial" })
 public class Calculator extends JFrame implements ActionListener, ItemListener{
@@ -75,81 +78,127 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 	 */
 	public Calculator() {
 		super("CalcFrame");
+		setResizable(false);
 		setTitle("Trancendental Calculator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 416, 294);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.YELLOW);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		for(int i = 0; i < 4; i++)
 			function[i] = false;
+		b1.setBackground(Color.WHITE);
+		b1.setForeground(Color.BLUE);
+		b1.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		b1.setBounds(10, 117, 45, 23);
 		contentPane.add(b1);
 		b1.addActionListener(this);
+		b2.setBackground(Color.WHITE);
+		b2.setForeground(Color.BLUE);
+		b2.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		b2.setBounds(58, 117, 45, 23);
 		contentPane.add(b2);
 		b2.addActionListener(this);
+		b3.setBackground(Color.WHITE);
+		b3.setForeground(Color.BLUE);
+		b3.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		b3.setBounds(109, 117, 45, 23);
 		contentPane.add(b3);
 		b3.addActionListener(this);
+		b4.setBackground(Color.WHITE);
+		b4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		b4.setForeground(Color.BLUE);
 
 		b4.setBounds(10, 151, 45, 23);
 		contentPane.add(b4);
 		b4.addActionListener(this);
+		b5.setBackground(Color.WHITE);
+		b5.setForeground(Color.BLUE);
+		b5.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		b5.setBounds(58, 151, 45, 23);
 		contentPane.add(b5);
 		b5.addActionListener(this);
+		b6.setBackground(Color.WHITE);
+		b6.setFont(new Font("Tahoma", Font.BOLD, 11));
+		b6.setForeground(Color.BLUE);
 
 		b6.setBounds(109, 151, 45, 23);
 		contentPane.add(b6);
 		b6.addActionListener(this);
+		b7.setForeground(Color.BLUE);
+		b7.setFont(new Font("Tahoma", Font.BOLD, 11));
+		b7.setBackground(Color.WHITE);
 
 		b7.setBounds(10, 185, 45, 23);
 		contentPane.add(b7);
 		b7.addActionListener(this);
+		b8.setFont(new Font("Tahoma", Font.BOLD, 11));
+		b8.setBackground(Color.WHITE);
+		b8.setForeground(Color.BLUE);
 
 		b8.setBounds(58, 185, 45, 23);
 		contentPane.add(b8);
 		b8.addActionListener(this);
+		b9.setBackground(Color.WHITE);
+		b9.setFont(new Font("Tahoma", Font.BOLD, 11));
+		b9.setForeground(Color.BLUE);
 
 		b9.setBounds(109, 185, 45, 23);
 		contentPane.add(b9);
 		b9.addActionListener(this);
+		b0.setFont(new Font("Tahoma", Font.BOLD, 11));
+		b0.setForeground(Color.BLUE);
 
 		b0.setBounds(10, 219, 93, 23);
 		contentPane.add(b0);
 		b0.addActionListener(this);
+		buttonDecimal.setForeground(Color.BLUE);
+		buttonDecimal.setFont(new Font("Tahoma", Font.BOLD, 14));
 
 		buttonDecimal.setBounds(109, 219, 45, 23);
 		contentPane.add(buttonDecimal);
 		buttonDecimal.addActionListener(this);
+		clearButton.setForeground(Color.BLUE);
+		clearButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		clearButton.setBounds(10, 83, 89, 23);
 		contentPane.add(clearButton);
 		clearButton.addActionListener(this);
+		btnNewButton_2.setForeground(Color.BLUE);
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnNewButton_2.setToolTipText("E.g. 5X^X=3125");
 
 		//btnNewButton_2 is for X^X, others are appropriately defined
 		btnNewButton_2.setBounds(207, 83, 89, 23);
 		contentPane.add(btnNewButton_2);
 		btnNewButton_2.addActionListener(this);
+		btnNewButton_3.setForeground(Color.BLUE);
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		//btnNewButton_3 is to toggle -ve values in input 
 		btnNewButton_3.setBounds(109, 83, 70, 23);
 		contentPane.add(btnNewButton_3);
 		btnNewButton_3.addActionListener(this);
+		textArea.setFont(new Font("Monospaced", Font.BOLD, 13));
 
 		textArea.setBounds(10, 33, 265, 22);
 		contentPane.add(textArea);
 		textArea.setEditable(false);
+		btnSinx.setForeground(Color.BLUE);
+		btnSinx.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
+		btnSinx.setToolTipText("E.g. 60+Sin=Sin60");
 
 		btnSinx.setBounds(207, 117, 89, 23);
 		contentPane.add(btnSinx);
 		btnSinx.addActionListener(this);//I have already added the action listener here, go to actionsPerformed()
+		btnCosx.setForeground(Color.BLUE);
+		btnCosx.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 
 		btnCosx.setBounds(207, 151, 89, 23);
 		contentPane.add(btnCosx);
@@ -158,6 +207,8 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 		btnTanx.setBounds(207, 185, 89, 23);
 		contentPane.add(btnTanx);
 		btnTanx.addActionListener(this);
+		btnTanx.setForeground(Color.BLUE);
+		btnTanx.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		
 		cbg = new CheckboxGroup();
 		degrees = new Checkbox("Degrees", cbg, true);
