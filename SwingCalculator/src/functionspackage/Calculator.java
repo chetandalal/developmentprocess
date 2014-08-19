@@ -272,14 +272,15 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 		try{
 			if (degrees.getState())
 			{
-				double inputted = Double.parseDouble(textArea.getText());
-				double value = Sine.sinet(inputted);
+				double inputted = Double.parseDouble(textArea.getText());				
+				double convertRadians= inputted*(Math.PI/180);
+				double value = Sine.sinet(convertRadians);
 				textArea.setText(Double.toString(value));	
 			}
 			else {
 				double inputted = Double.parseDouble(textArea.getText()); 
-				double convertDegree= Math.toDegrees(inputted);
-				double value = Sine.sinet(convertDegree);
+				//double convertDegree= Math.toDegrees(inputted);
+				double value = Sine.sinet(inputted);
 				textArea.setText(Double.toString(value));
 			}
 		} catch(NumberFormatException e) {
@@ -287,21 +288,46 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 	}
 
 	public void cos() {
-		try {
-			double inputted = Double.parseDouble(textArea.getText());
-			double value = Cose.cosF(inputted);
-			textArea.setText(Double.toString(value));
+		
+		try{
+			if (degrees.getState())
+			{
+				double inputted = Double.parseDouble(textArea.getText());				
+				double convertRadians= inputted*(Math.PI/180);
+				double value = Cose.cosF(convertRadians);
+				textArea.setText(Double.toString(value));	
+			}
+			else {
+				double inputted = Double.parseDouble(textArea.getText()); 
+				//double convertDegree= Math.toDegrees(inputted);
+				double value = Cose.cosF(inputted);
+				textArea.setText(Double.toString(value));
+			}
 		} catch(NumberFormatException e) {
-		}
+			}
+		
+		
 	}
 
 	public void tan() {
-		try {
-			double inputted = Double.parseDouble(textArea.getText());
-			double value = CalcTan.CalcTanFun(inputted);
-			textArea.setText(Double.toString(value));
+		
+		try{
+			if (degrees.getState())
+			{
+				double inputted = Double.parseDouble(textArea.getText());				
+				double convertRadians= inputted*(Math.PI/180);
+				double value = CalcTan.CalcTanFun(convertRadians);
+				textArea.setText(Double.toString(value));	
+			}
+			else {
+				double inputted = Double.parseDouble(textArea.getText()); 
+				//double convertDegree= Math.toDegrees(inputted);
+				double value = CalcTan.CalcTanFun(inputted);
+				textArea.setText(Double.toString(value));
+			}
 		} catch(NumberFormatException e) {
-		}
+			}
+		
 	}
 
 	@Override

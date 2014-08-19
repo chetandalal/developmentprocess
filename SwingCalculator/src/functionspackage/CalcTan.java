@@ -18,7 +18,7 @@ public class CalcTan {
         
         
          num1=input;    
-         num1=(double) num1*(Math.PI/180);
+         //num1=(double) num1*(Math.PI/180);
              for(int i=0; i<6; i++){
          fact_cos= factorial(2*i);
          fact_sin=factorial((2*i)+1);

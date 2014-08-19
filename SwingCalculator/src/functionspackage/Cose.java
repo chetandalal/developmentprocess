@@ -5,7 +5,7 @@ public class Cose {
 
 	public static double cosF(double input)
 	{     
-		input = Math.toRadians(input); 
+		//input = Math.toRadians(input); 
 
 		double sum = 0 ;
 

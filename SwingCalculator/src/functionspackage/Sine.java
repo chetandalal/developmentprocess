@@ -12,7 +12,7 @@ public class Sine {
 	public static double sinet(double x){  
 
 
-		x = Math.toRadians(x); //please remove this, only use Universal constants from math lib like PIE.
+		//x = Math.toRadians(x); //please remove this, only use Universal constants from math lib like PIE.
 		double sumTaylor = 0 ;
 
 		for(int i = 0 ; i < 3 ; i++)   
