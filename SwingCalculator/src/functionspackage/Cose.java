@@ -1,11 +1,24 @@
-
+/**
+ * Calculate Cosine values for an input
+ * 
+ * This code is a part of a project for the course SOEN 6011 "Software Engineering Development Processes"
+ * taught by Dr. Pankaj Kamthan.
+ * 
+ * @author Mandeep Singh
+ * @copyright	August 2014 - Concordia University, Montreal, QC
+ * 
+ */
 package functionspackage;
 
 public class Cose {
 
 	public static double cosF(double input)
-	{     
-		//input = Math.toRadians(input); 
+	{   
+		
+		/** Debugging 
+		 * input = Math.toRadians(input); 
+		 * 
+		 */
 
 		double sum = 0 ;
 

@@ -1,3 +1,13 @@
+/**
+ * Calculate Sine function for 
+ * 
+ * This code is a part of a project for the course SOEN 6011 "Software Engineering Development Processes"
+ * taught by Dr. Pankaj Kamthan.
+ * 
+ * @author Navpreet Singh
+ * @copyright	August 2014 - Concordia University, Montreal, QC
+ * 
+ */
 package functionspackage;
 import static java.lang.Math.pow;
 
