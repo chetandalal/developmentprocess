@@ -1,35 +1,46 @@
+/**
+ * Calculator UI Design Using Swing and AWT
+ * 
+ * This code is a part of a project for the course SOEN 6011 "Software Engineering Development Processes"
+ * taught by Dr. Pankaj Kamthan.
+ * 
+ * @author Chetan Dalal
+ * @copyright	August 2014 - Concordia University, Montreal, QC
+ * 
+ */
 package functionspackage;
 
-import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
-import functionspackage.Xfunc;//Import your file
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JCheckBox;
-import java.awt.SystemColor;
-import java.awt.Font;
+
 
 @SuppressWarnings({ "unused", "serial" })
+/** Class Calculator 
+ * implements Swing actionlistener and Itemlistner of AWT to render a UI on JPanel.
+ */
 public class Calculator extends JFrame implements ActionListener, ItemListener{
 
 	private JPanel contentPane;
 	public double result=0.0;
 	CheckboxGroup cbg;
-	 Checkbox radians, degrees;
-	//private boolean isDecimal=false;
-	//private boolean isEnter=false;
+	Checkbox radians, degrees;
+	/** Debugging
+	 * private boolean isDecimal=false;
+	 * private boolean isEnter=false;
+	 */
 	boolean[] function = new boolean[4];
 	double[] temporary = {0, 0};
 	JTextArea textArea = new JTextArea();
@@ -50,9 +61,6 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 	JButton btnCosx = new JButton("Cos");
 	JButton btnTanx = new JButton("Tan");
 	JButton btnNewButton_3 = new JButton("-/+");
-	
-
-
 
 	/**
 	 * Launch the application.
@@ -75,9 +83,10 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 
 	/**
 	 * Create the frame.
+	 * Constructor
 	 */
 	public Calculator() {
-		super("CalcFrame");
+		//super("CalcFrame");//Call the super class
 		setResizable(false);
 		setTitle("Trancendental Calculator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -331,7 +340,10 @@ public class Calculator extends JFrame implements ActionListener, ItemListener{
 	}
 
 	@Override
-
+	/**
+	 * (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent ae) {
 
 		if(ae.getSource() == b0)
